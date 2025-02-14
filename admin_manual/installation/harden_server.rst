@@ -182,13 +182,16 @@ Restrict admin actions to a specific range of IP addresses
 
 Configure ``allowed_admin_ranges`` in ``config.php`` to restrict the admin actions to trusted IP ranges.
 
-This can be achieved with this kind of setting, usually using private IP ranges::
+This can be achieved with this kind of setting, usually using private IP ranges:: (As of version 30. the IP rages need to be declared as array)
 
-  'allowed_admin_ranges' => [
-    '127.0.0.1/8',
-    '192.168.0.0/16',
-    'fd00::/8',
-  ],
+  'allowed_admin_ranges' => 
+   array(
+    0 => '127.0.0.1/8',
+    1 => '192.168.0.0/16',
+    2 => '172.16.0.0/12',
+    3 => '10.0.0.0/8',
+    4 => 'fd00::/8',
+  ),
 
 All requests originating from IP addresses outside of these ranges will not be able to execute admin actions.
 
